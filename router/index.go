@@ -8,9 +8,11 @@ import (
 
 func BioskopRouter(app *gin.Engine, BioskopController *controller.Controller) {
 
-	app.GET("/", BioskopController.Get)
-	app.GET("/:id", BioskopController.GetById)
-	app.POST("/bioskop", BioskopController.Create)
-	app.PUT("/update/:id", BioskopController.Update)
-	app.DELETE("/delete/:id", BioskopController.Delete)
+	bioskop := app.Group("/bioskop")
+
+	bioskop.GET("/", BioskopController.Get)
+	bioskop.GET("/:id", BioskopController.GetById)
+	bioskop.POST("/", BioskopController.Create)
+	bioskop.PUT("/:id", BioskopController.Update)
+	bioskop.DELETE("/:id", BioskopController.Delete)
 }
