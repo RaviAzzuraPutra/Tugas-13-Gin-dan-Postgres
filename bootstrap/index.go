@@ -14,11 +14,7 @@ import (
 )
 
 func InitApp() {
-	errEnv := godotenv.Load()
-
-	if errEnv != nil {
-		panic("ENV NOT LOADED")
-	}
+	_ = godotenv.Load()
 
 	config.Init_Config()
 
