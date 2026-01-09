@@ -22,6 +22,12 @@ func InitApp() {
 
 	app := gin.Default()
 
+	app.GET("/", func(ctx *gin.Context) {
+		ctx.JSON(200, gin.H{
+			"Message": "Aplikasi Berjalan Dengan Baik 👍",
+		})
+	})
+
 	repository := repository.NewRpositoryRegistry()
 	service := service.NewServiceRegistry(repository)
 	controller := controller.NewControllerRegistry(service)
