@@ -28,5 +28,5 @@ func InitApp() {
 
 	router.BioskopRouter(app, controller)
 
-	app.Run(app_config.PORT)
+	app.Run(":" + app_config.PORT)
 }
